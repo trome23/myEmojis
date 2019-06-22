@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>SuperHero List</Title>
+        <Title>Clickster Game</Title>
         {this.state.superHeros.map(friend => (
           <ImageCard
             removeFriend={this.removeFriend}
