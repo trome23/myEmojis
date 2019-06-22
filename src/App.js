@@ -6,12 +6,40 @@ import ScoreBoard from "./components/ScoreBoard";
 
 class App extends Component {
   state = {
-    superHeros
+    superHeros,
+    score: 0,
+    highScore: 0,
+    showAlert: 0,
+    showSuccess: 0,
+    clickedImages: []
   };
 
-//   imageClick = () => {
-//     console.log('Click!!!!');
-//  }  
+  clickedImage = id => {
+    let  clickedImages = this.state.clickedImages;
+    let score = this.state.score;
+    let highScore = this.state.highScore;
+    this.setState({
+      showAlert: 0
+    })
+    if(clickedImages.indexOf(id) === -1) {
+      clickedImages.push(id); 
+      this.handleIncrement();
+      this.makeShuffle() 
+    } else if (this.state.score ===12) {
+      this.setState({
+        showSuccess:1, 
+        score: 0, 
+        clickedImages:[]
+      }) 
+    } else {
+      this.setState({
+        score:0, 
+        clickedImages:[], 
+        showAlert:1
+      });
+    }
+   
+ }  
 
   render() {
     return (
