@@ -9,6 +9,10 @@ class App extends Component {
     superHeros
   };
 
+  imageClick = () => {
+    console.log('Click!!!!');
+ }  
+
   render() {
     return (
       <Wrapper>
