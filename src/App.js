@@ -2,24 +2,23 @@ import React, {Component} from 'react';
 import ImageCard from './components/ImageCard'
 import superHeros from './superHeros.json'
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+import ScoreBoard from "./components/ScoreBoard";
 
 class App extends Component {
   state = {
     superHeros
   };
 
-  imageClick = () => {
-    console.log('Click!!!!');
- }  
+//   imageClick = () => {
+//     console.log('Click!!!!');
+//  }  
 
   render() {
     return (
       <Wrapper>
-        <Title>Clickster Game</Title>
+        <ScoreBoard/>
         {this.state.superHeros.map(friend => (
           <ImageCard
-            removeFriend={this.removeFriend}
             id={friend.id}
             key={friend.id}
             name={friend.name}
