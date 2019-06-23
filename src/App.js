@@ -8,38 +8,62 @@ class App extends Component {
   state = {
     superHeros,
     score: 0,
-    highScore: 0,
-    showAlert: 0,
-    showSuccess: 0,
-    clickedImages: []
+    message: '',
+    clickedImages: [],
+    showSuccess:0
   };
+  
 
   clickedImage = id => {
-    let  clickedImages = this.state.clickedImages;
-    let score = this.state.score;
-    let highScore = this.state.highScore;
-    this.setState({
-      showAlert: 0
-    })
-    if(clickedImages.indexOf(id) === -1) {
-      clickedImages.push(id); 
-      this.handleIncrement();
-      this.makeShuffle() 
-    } else if (this.state.score ===12) {
+    let clickedImages = this.state.clickedImages;
+    if(clickedImages.includes(id)) {
       this.setState({
-        showSuccess:1, 
-        score: 0, 
-        clickedImages:[]
-      }) 
-    } else {
-      this.setState({
-        score:0, 
-        clickedImages:[], 
-        showAlert:1
+        clickedImages: [], 
+        score: 0,
+        message: "Dang it! Try Again!"
       });
-    }
-   
- }  
+      return; 
+    } else {
+      clickedImages.push(id)
+      if(clickedImages.length === 12) {
+        this.setState({
+          showSuccess:1, 
+          score: 12, 
+          message: "You WIN! Click another image to play again!",
+          clickedImages:[]
+        }) 
+        return
+      }
+      
+    } 
+      this.setState({
+        superHeros: 0, 
+        clickedImages,
+        score: clickedImages.length, 
+        message: "",
+      });
+      for (let i = superHeros.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [superHeros[i], superHeros[j]] = [superHeros[j], superHeros[i]];
+      }
+    } 
+ 
+//  handleIncrement = () => {
+//    this.setState({
+//      score: this.state.score + 1
+//    })
+//  }
+
+//  handleShuffle = () => {
+//    const shuffle = superHeros.map(prevState => {
+//      return(
+//       Math.floor(Math.random(prevState))
+//      )
+//    })
+//    this.setState({
+//       superHeros: shuffle
+//    })
+//  }
 
   render() {
     return (
@@ -58,7 +82,6 @@ class App extends Component {
       </Wrapper>
     );
   }
-  
 }
 
 export default App;

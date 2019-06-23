@@ -11,8 +11,8 @@ function ScoreBoard(props) {
       <h6>Click a Super Hero, remember which one, and don't choose it again!</h6>
     </div>
     <div className="row">
-      <div className="col-md-3 col-right"><h6>High Score: {props.score}</h6></div>
-      <div className="col-md-3 col-right"><h6>Current Score: {props.topScore}</h6></div>
+      <div className="col-md-3 col-right"><h6>Current Score: {props.score}</h6></div>
+      <div className="col-md-3 col-right"><h6>High Score: {props.showSuccess}</h6></div>
     </div>
   </header>    
   );

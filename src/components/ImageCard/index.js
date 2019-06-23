@@ -1,12 +1,11 @@
 import React from 'react';
 import "./style.css";
 
-function ImageCard(props) {
-  console.log(props)
-    return (
-        <div className="card">
-          <div className="img-container">
-            <img onClick={() => props.clickedImage(props.id)} alt={props.name} src={props.image} />
+const ImageCard = props => (
+  // console.log(props)
+        <div className="card"id={props.id} onClick={() => props.clickedImage(props.id)}>
+          <div className="img-container hover">
+            <img alt={props.name} src={props.image} />
           </div>
           <div className="content">
             <ul>
@@ -22,7 +21,6 @@ function ImageCard(props) {
             </ul>
           </div>
         </div>
-      );
-}
+)
 
 export default ImageCard
