@@ -19,9 +19,9 @@ function Header(props) {
     <div>
       <div className="container">
         <div className="col text-center">
-            <span className="font-weight-bold float-left">Clickster Memory Game!</span>
+            <h2 className="font-weight-bold float-left">Clickster Memory Game! </h2>
             <span className="mid-text">{status}</span>
-            <span className="score-display float-right">Score: {props.score} | High Score: {props.highScore}</span>
+            <h5 className="score-display float-right">Score: {props.score} | High Score: {props.highScore}</h5>
         </div>
     </div>
   </div> 
