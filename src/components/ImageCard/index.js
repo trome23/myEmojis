@@ -3,7 +3,7 @@ import "./style.css";
 
 const ImageCard = props => (
   // console.log(props)
-        <div className="card"id={props.id} onClick={() => props.clickedImage(props.id)}>
+        <div className="card" id={props.id} onClick={() => props.clickedImage(props.id)}>
           <div className="img-container hover">
             <img alt={props.name} src={props.image} />
           </div>

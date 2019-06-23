@@ -14,7 +14,7 @@ class App extends Component {
   };
   
 
-  clickedImage = id => {
+  clickedImage = (id) => {
     let clickedImages = this.state.clickedImages;
     if(clickedImages.includes(id)) {
       this.setState({
@@ -71,6 +71,7 @@ class App extends Component {
         <ScoreBoard/>
         {this.state.superHeros.map(friend => (
           <ImageCard
+            clickedImage={this.clickedImage}
             id={friend.id}
             key={friend.id}
             name={friend.name}

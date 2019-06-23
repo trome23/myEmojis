@@ -12,7 +12,7 @@ function ScoreBoard(props) {
     </div>
     <div className="row">
       <div className="col-md-3 col-right"><h6>Current Score: {props.score}</h6></div>
-      <div className="col-md-3 col-right"><h6>High Score: {props.showSuccess}</h6></div>
+      <div className="col-md-3 col-right"><h6>High Score: {props.score}</h6></div>
     </div>
   </header>    
   );
