@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ImageCard from './components/ImageCard'
 import superHeros from './superHeros.json'
 import Header from "./components/Header";
+import Wrapper from "./components/Wrapper"
 
 
 class App extends Component {
@@ -74,11 +75,13 @@ class App extends Component {
           gameStarted={this.state.gameStarted}
           arrLength = {this.state.length}
         />
+        
         <div className="container">
         <div>
           <h3>Don't click the same Super Hero twice!</h3>
         </div>
-          <div className="row">{this.props.children}
+        <Wrapper>
+          
             {this.state.superHeros.map(friend => (
               <ImageCard
                 clickedImage={this.clickedImage}
@@ -91,9 +94,11 @@ class App extends Component {
                 arrLength={this.state.superHeros.length}
               />
             ))}
-          </div>     
-        </div>      
-      </div>
+         
+          </Wrapper>    
+        </div>   
+         
+        </div>       
     );
   }
 }
