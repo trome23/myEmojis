@@ -1,88 +1,60 @@
 import React, {Component} from 'react';
 import ImageCard from './components/ImageCard'
 import superHeros from './superHeros.json'
-import Wrapper from "./components/Wrapper";
-import ScoreBoard from "./components/ScoreBoard";
+import Header from "./components/Header";
+
 
 class App extends Component {
   state = {
     superHeros,
     score: 0,
-    message: '',
+    highScore: 0,
     clickedImages: [],
-    showSuccess:0
+    gameStarted: false
   };
   
 
-  clickedImage = (id) => {
-    let clickedImages = this.state.clickedImages;
-    if(clickedImages.includes(id)) {
+  clickedImage = (event) => {
+    if(this.state.gameStarted === false) {
       this.setState({
-        clickedImages: [], 
-        score: 0,
-        message: "Dang it! Try Again!"
-      });
-      return; 
-    } else {
-      clickedImages.push(id)
-      if(clickedImages.length === 12) {
-        this.setState({
-          showSuccess:1, 
-          score: 12, 
-          message: "You WIN! Click another image to play again!",
-          clickedImages:[]
-        }) 
-        return
-      }
-      
-    } 
-      this.setState({
-        superHeros: 0, 
-        clickedImages,
-        score: clickedImages.length, 
-        message: "",
-      });
-      for (let i = superHeros.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [superHeros[i], superHeros[j]] = [superHeros[j], superHeros[i]];
-      }
-    } 
- 
-//  handleIncrement = () => {
-//    this.setState({
-//      score: this.state.score + 1
-//    })
-//  }
+        gameStarted: true
+      })
+    }
+  
 
-//  handleShuffle = () => {
-//    const shuffle = superHeros.map(prevState => {
-//      return(
-//       Math.floor(Math.random(prevState))
-//      )
-//    })
-//    this.setState({
-//       superHeros: shuffle
-//    })
-//  }
+  const id = event.target.getAttribute('data-id');
+  console.log("id " + id)
 
   render() {
     return (
-      <Wrapper>
-        <ScoreBoard/>
-        {this.state.superHeros.map(friend => (
-          <ImageCard
-            clickedImage={this.clickedImage}
-            id={friend.id}
-            key={friend.id}
-            name={friend.name}
-            image={friend.image}
-            occupation={friend.occupation}
-            location={friend.location}
-          />
-        ))}
-      </Wrapper>
+      <div>
+        <Header 
+          score= {this.state.score}
+          highScore={this.state.highScore}
+          gameStarted={this.state.gameStarted}
+          arrLength = {this.state.length}
+        />
+        <div className="container">
+        <div>
+          <h3>Don't click the same Super Hero twice!</h3>
+        </div>
+          <div className="row">
+            {this.state.superHeros.map(friend => (
+              <ImageCard
+                clickedImage={this.clickedImage}
+                id={friend.id}
+                key={friend.id}
+                name={friend.name}
+                image={friend.image}
+                score={this.state.score}
+                gameStarted={this.state.gameStarted}
+                arrLength={this.state.superHeros.length}
+              />
+            ))}
+          </div>     
+        </div>      
+      </div>
     );
   }
-}
 
 export default App;
