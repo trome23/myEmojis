@@ -77,7 +77,7 @@ class App extends Component {
         />
         
         <div className="container">
-        <div>
+        <div className="instruction-text">
           <h3>Don't click the same Super Hero twice!</h3>
         </div>
         <Wrapper>

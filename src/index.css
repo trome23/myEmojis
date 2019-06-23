@@ -8,3 +8,20 @@ html, body, #root {
   margin: 0;
   height: 100%;
 }
+
+.wrapper {
+  padding-top: 50px;
+  background: #ECEFF1;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;
+}
+
+.instruction-text {
+  font-style: italic;
+  text-align: center;
+}

@@ -18,8 +18,8 @@ function Header(props) {
   return ( 
     <div>
       <div className="container">
-        <div className="col text-center">
-            <h2 className="font-weight-bold float-left">Clickster Memory Game! </h2>
+        <div className="col text-center" id="title-score">
+            <h2 className="title">Clickster Memory Game! </h2>
             <span className="mid-text">{status}</span>
             <h5 className="score-display float-right">Score: {props.score} | High Score: {props.highScore}</h5>
         </div>
