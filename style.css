@@ -20,10 +20,12 @@ body {
 
 #push-btn,#unshift-btn {
     background-color: #80D87F;
+    margin: 15px 5px 5px 5px;
 }
 
 #shift-btn,#pop-btn {
     background-color: #E23349;
+    margin: 5px;
 }
 
 h1 {
@@ -56,5 +58,5 @@ button {
 .buttons-wrapper {
     display: flex;
     justify-content: center;
-    margin: 10px 0 40px;
+    
 }
